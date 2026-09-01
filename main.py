@@ -28,8 +28,8 @@ def __main__():
             __main__()
 
 libros = crear_objetos()
-    for libro in libros:
-        print(str(libro))
+for libro in libros:
+    print(str(libro))
 
 
 
