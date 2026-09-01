@@ -20,7 +20,7 @@ class Libro:                        # constructor de la clase libro
 
     def __str__(self):
 
-        return f'isbn: {self.isbn} Titulo: {self.titulo} Autor: {self.autor} anio: {self.anio} Disponible: {'Si' if self.disponible else 'No'} Genero:{self.genero} Paginas: {self.paginas}'
+        return f'isbn: {self.isbn} Titulo: {self.titulo} Autor: {self.autor} anio: {self.anio} Disponible: {'Si' if self.__disponible else 'No'} Genero:{self.genero} Paginas: {self.paginas}'
 
     def prestar(self):
         if self.__disponible:
