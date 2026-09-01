@@ -29,7 +29,7 @@ def __main__():
 
 libros = crear_objetos()
 for libro in libros:
-    print(str(libro))
+    print(libro)
 
 
 
