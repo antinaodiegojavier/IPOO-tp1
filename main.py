@@ -21,7 +21,7 @@ def crear_objetos()->list:
 
 
 
-    def __main__():
+def __main__():
         pass
     
         if __name__ ==__main__:

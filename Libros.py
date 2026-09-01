@@ -11,15 +11,16 @@ class Libro:                        # constructor de la clase libro
         self.genero = genero
         self.paginas = paginas
 
-        self. disponible=True 
+        self.__disponible=True 
         # Indica si el libro está disponible para préstamo
-        self. cantidad_prestamos=0 
+        self.__cantidad_prestamos=0 
         # Indica cuantas veces se presto el libro
 
 # METODOS
 
 def __str__(self):
-    return f'isbn: {self.isbn} Titulo: {self.titulo} Autor: {self.autor} anio: {self.anio} Disponible: {'Si' if self.disponible else 'No'} Genero:{self.genero} Paginas: {self.paginas}
+
+    return f'isbn: {self.isbn} Titulo: {self.titulo} Autor: {self.autor} anio: {self.anio} Disponible: {'Si' if self.disponible else 'No'} Genero:{self.genero} Paginas: {self.paginas}'
 
 def prestar(self):
     if self.disponible:
