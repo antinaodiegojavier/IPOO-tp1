@@ -1,5 +1,4 @@
 
-
 class Libro:                        # constructor de la clase libro
                                  #         |  
                       # ___________________V______________________            
