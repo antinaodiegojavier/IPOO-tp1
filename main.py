@@ -118,6 +118,22 @@ def mostrar_estadisticas(libros:list):  #algoritmo  8
      print (f'Porcentaje de libros prestados: {porc_prestados}')
 
 
+def libro_mas_prestado(libros:list): #ANALIZAR FUNCION Y DISCUTIRLA
+    for libro in libros:
+        if libro.cantidad_prestamos[0]>libro.cantidad_prestamos[1]:
+            print ('-----LIBRO MAS PRESTADO DE NUESTRA BIBLIOTECA: -----')
+            print (f'Titulo: {libro.titulo}')
+            print (f'Autor: {libro.autor}')
+            print (f'Veces prestado: {libro.cantidad_prestamos}')
+
+
+def libro_mas_antiguo(libros:list):  #ANALIZAR FUNCION Y DISCUTIRLA
+    for libro in libros:
+        if libro.anio[0]>libro.anio[1]:
+            print ('-----LIBRO MAS ANTIGUO DE NUESTRA BIBLIOTECA: -----')
+            print (f'Titulo: {libro.titulo}')
+            print (f'Anio: {libro.anio}')
+            
 
 
 
