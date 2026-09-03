@@ -69,14 +69,46 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
             print (libros)
 
 
+def registrar_prestamo(libros:list): #algoritmo 6
+     print ('-----REGISTRO DE PRESTAMO-----')
+     ISBN=input(str('ingrese el ISBN del libro que quiere prestar'))
+     encontrado=False
+     for libro in libros:
+          if ISBN==libro.isbn:
+               if libro.esta_disponible==True:
+                    libro.esta_disponible=False
+                    print('Prestamo registrado con exito')
+                    encontrado=True
+     if not encontrado:
+          print('No se encontro ningun libro con ese ISBN')
+
+def registrar_devolucion(libros:list): #algoritmo 7
+     print ('------REGISTRO DE DEVOLUCION------')
+     ISBN=input(str('ingrese el isbn del libro que sera devuelto'))
+     encontrado = False
+     for libro in libros:
+          if ISBN==libro.isbn:
+               if libro.esta_disponible==False:
+                    libro.esta_disponible=True
+                    print('Devolucion registrada con exito')
+                    encontrado=True
+     if not encontrado:
+          print('No se encontro ningun libro con ese ISBN')
 
 
-
-
-
-            
-
-
+def mostrar_estadisticas(libros:list):  #algoritmo  8
+     print ('----ESTADISTICAS DE LA BIBLIOTECA----')
+     total_libros=len(libros)
+     libros_disponibles=0
+     libros_prestados=0
+     for libro in libros :
+          if libro.esta_disponible==True:
+               libros_disponibles +=1
+          else:
+               libros_prestados +=1
+               print (f'cantidad de libros disponibles: {libros_disponibles}')
+     print (f'cantidad de libros prestados: {libros_prestados}')
+     print (f'cantidad total de libros: {total_libros}')
 
 
 
