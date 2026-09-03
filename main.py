@@ -69,29 +69,30 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
             print (libros)
 
 
+
 def registrar_prestamo(libros:list): #algoritmo 6
      print ('-----REGISTRO DE PRESTAMO-----')
-     ISBN=input(str('ingrese el ISBN del libro que quiere prestar'))
      encontrado=False
+     ISBN=input(int('ingrese el ISBN del libro que quiere prestar'))
      for libro in libros:
-          if ISBN==libro.isbn:
-               if libro.esta_disponible==True:
-                    libro.esta_disponible=False
+          if ISBN==libro.isbn and libro.esta_disponible==True:
+                    libro.prestar()
                     print('Prestamo registrado con exito')
                     encontrado=True
      if not encontrado:
           print('No se encontro ningun libro con ese ISBN')
 
+
+
 def registrar_devolucion(libros:list): #algoritmo 7
      print ('------REGISTRO DE DEVOLUCION------')
-     ISBN=input(str('ingrese el isbn del libro que sera devuelto'))
+     ISBN=input(int('ingrese el isbn del libro que sera devuelto'))
      encontrado = False
      for libro in libros:
-          if ISBN==libro.isbn:
-               if libro.esta_disponible==False:
-                    libro.esta_disponible=True
-                    print('Devolucion registrada con exito')
-                    encontrado=True
+          if ISBN==libro.isbn and libro.esta_disponible==False:
+            libro.devolver()
+            print('Devolucion registrada con exito')
+            encontrado=True
      if not encontrado:
           print('No se encontro ningun libro con ese ISBN')
 
@@ -106,9 +107,15 @@ def mostrar_estadisticas(libros:list):  #algoritmo  8
                libros_disponibles +=1
           else:
                libros_prestados +=1
-               print (f'cantidad de libros disponibles: {libros_disponibles}')
+
+     porc_disponibles=libros_disponibles*100/total_libros
+     porc_prestados=libros_prestados*100/total_libros
+
+     print (f'cantidad de libros disponibles: {libros_disponibles}')
      print (f'cantidad de libros prestados: {libros_prestados}')
      print (f'cantidad total de libros: {total_libros}')
+     print (f'Porcentaje de libros disponibles: {porc_disponibles}')
+     print (f'Porcentaje de libros prestados: {porc_prestados}')
 
 
 
