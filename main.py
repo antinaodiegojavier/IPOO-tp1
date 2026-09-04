@@ -122,7 +122,7 @@ def mostrar_estadisticas(libros:list):  #algoritmo  8
 
 def libro_mas_prestado(libros:list): #ANALIZAR FUNCION Y DISCUTIRLA
     for libro in libros:
-        if libro.cantidad_prestamos[0]>libro.cantidad_prestamos[1]:
+        if libro.cantidad_prestamos[1]>libro.cantidad_prestamos[0]:
             print ('-----LIBRO MAS PRESTADO DE NUESTRA BIBLIOTECA: -----')
             print (f'Titulo: {libro.titulo}')
             print (f'Autor: {libro.autor}')
