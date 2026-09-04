@@ -1,7 +1,9 @@
 from Libros import Libro
 
 
-def objetos()->list:
+def objetos(libros)->list:
+    objetos = list[0]
+
     libro1=Libro( isbn= 1032, titulo='Emma', autor='Austen', anio= 1815, genero= 'Romance', paginas= 474)
     libro2=Libro(isbn= 6489, titulo='Dune', autor='Herbert', anio= 1965, genero= 'Ciencia ficcion', paginas= 688)
     libro3=Libro(isbn= 5993, titulo='Dracula', autor='Stoker', anio= 1897, genero= 'Terror', paginas= 418)
@@ -24,7 +26,7 @@ def mostrar_libros(libros: list):
 
 def buscar_isbn(libros:list): #Algoritmo 2
     print ('-----BUSQUEDA POR ISBN-----')
-    isbn1=input(str('Ingrese el ISBN del libro que desee buscar'))
+    isbn1=input(('Ingrese el ISBN del libro que desee buscar: '))
     encontrado=False
     for libro in libros:
         if isbn1==libro.isbn:
@@ -38,7 +40,7 @@ def buscar_isbn(libros:list): #Algoritmo 2
 
 def buscar_titulo (libros: list): #Algoritmo 3
     print ('-----BUSQUEDA POR TITULO-----')
-    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca')).capitalize
+    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize
     encontrado=False
     for libro in libros:
         if titulo1==libro.titulo:  #ACLARACION: esta condicion esta mal, ya que si el usuario ingresa "quijote" y el libro es don quijote, no lo mostrara. CAMBIAR CONDICION
@@ -51,7 +53,7 @@ def buscar_titulo (libros: list): #Algoritmo 3
 
 def filtrar_genero (libros:list): #Algoritmo 4
     print ('-----BUSQUEDA POR GENERO-----')
-    genero=input(str('Ingrese un genero para buscar un libro de nuestra biblioteca'))
+    genero=input(str('Ingrese un genero para buscar un libro de nuestra biblioteca: '))
     encontrado=False
     for libro in libros:
             if genero==libro.genero:
@@ -66,14 +68,14 @@ def filtrar_genero (libros:list): #Algoritmo 4
 def mostrar_disponibles(libros:list): #Algoritmo 5
     for libro in libros:
         if libro.esta_disponible==True:
-            print (libros)
+            print (list(libro))
 
 
 
 def registrar_prestamo(libros:list): #algoritmo 6
      print ('-----REGISTRO DE PRESTAMO-----')
      encontrado=False
-     ISBN=input(int('ingrese el ISBN del libro que quiere prestar'))
+     ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
      for libro in libros:
           if ISBN==libro.isbn and libro.esta_disponible==True:
                     libro.prestar()
@@ -86,7 +88,7 @@ def registrar_prestamo(libros:list): #algoritmo 6
 
 def registrar_devolucion(libros:list): #algoritmo 7
      print ('------REGISTRO DE DEVOLUCION------')
-     ISBN=input(int('ingrese el isbn del libro que sera devuelto'))
+     ISBN=input(('ingrese el isbn del libro que sera devuelto: '))
      encontrado = False
      for libro in libros:
           if ISBN==libro.isbn and libro.esta_disponible==False:
@@ -120,7 +122,7 @@ def mostrar_estadisticas(libros:list):  #algoritmo  8
 
 def libro_mas_prestado(libros:list): #ANALIZAR FUNCION Y DISCUTIRLA
     for libro in libros:
-        if libro.cantidad_prestamos[0]>libro.cantidad_prestamos[1]:
+        if libro.cantidad_prestamos[1]>libro.cantidad_prestamos[0]:
             print ('-----LIBRO MAS PRESTADO DE NUESTRA BIBLIOTECA: -----')
             print (f'Titulo: {libro.titulo}')
             print (f'Autor: {libro.autor}')
@@ -136,17 +138,17 @@ def libro_mas_antiguo(libros:list):  #ANALIZAR FUNCION Y DISCUTIRLA
             
 
 
-
-
 def __main__():
-    pass
-    libros=objetos()
+    libros=objetos(list)
     mostrar_libros(libros)
-    if __name__ ==__main__:
-            __main__()
-
-
-
-
-
-
+    buscar_isbn(libros)
+    buscar_titulo(libros)
+    filtrar_genero(libros)
+    mostrar_disponibles(libros)
+    registrar_prestamo(libros)
+    registrar_devolucion(libros)
+    mostrar_estadisticas(libros)
+    libro_mas_prestado(libros)
+    libro_mas_antiguo(libros)
+if __name__ == '__main__':
+    __main__()
