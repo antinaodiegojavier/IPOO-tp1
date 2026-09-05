@@ -66,10 +66,14 @@ def filtrar_genero (libros:list): #Algoritmo 4
     
 
 def mostrar_disponibles(libros:list): #Algoritmo 5
+    encontrados = False
     for libro in libros:
-        if libro.esta_disponible==True:
-            print (list(libro))
-
+        if libro.esta_disponible:
+            print ('\nLibros disponibles de hoy: \n')
+            print (libro)
+            encontrados = True
+    if not encontrados:
+         print ('No hay libros disponibles en este momento ')
 
 
 def registrar_prestamo(libros:list): #algoritmo 6
@@ -159,8 +163,10 @@ def promedio_paginas (libros: list):
 
 
 def menu():
+    print ('\n=============================================================\n')
     print ('''
-    ----¡BIENVENIDO/A A LA BIBLIOTECA ROBDIEG ANTKLUG!----
+    *----¡BIENVENIDO/A A LA BIBLIOTECA ROBDIEG ANTKLUG!----*
+
         Que desea hacer hoy?
 
         1) Mostrar todos nuestros libros 
@@ -174,10 +180,9 @@ def menu():
         9) Mostrar nuestro libro mas solicitado 
         10) Mostrar nuestro libro mas antiguo
         11) Calcular promedio de paginas 
-        0) Salir 
+        0) Salir ''')
     
-    
-    ''') 
+    print ('\n=============================================================\n') 
     
     
     
@@ -188,10 +193,10 @@ def __main__():
     libros=objetos(list)
     while True:
         menu()
-        op=int(input('Elija una opcion '))
+        op=int(input('Elija una opcion: '))
 
         if op>11:
-            print ('Ingrese una opcion valida')
+            print ('Ingrese una opcion valida: ')
             continue
      
         if op==0:
