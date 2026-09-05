@@ -152,19 +152,60 @@ def promedio_paginas (libros:list):
 
 
 
+def menu():
+    print ('''
+    ----¡BIENVENIDO/A A LA BIBLIOTECA ROBDIEG ANTKLUG!----
+        Que desea hacer hoy?
+
+        1) Mostrar todos nuestros libros 
+        2) Buscar un libro por ISBN
+        3) Buscar un libro por su titulo
+        4) Filtrar libros por genero
+        5) Mostrar nuestros libros disponibles
+        6) Registrar un prestamo
+        7) Registrar una devolucion 
+        8) Mostrar estadisticas de nuestros libros
+        9) Mostrar nuestro libro mas solicitado 
+        10) Mostrar nuestro libro mas antiguo
+        11) Calcular promedio de paginas 
+    
+    
+    ''')
+    op=int(input('Elija una opcion '))
+    while op <1 or op>11:
+        print ('Ingrese una opcion valida (1-11) ')
+        op=int(input('Elija una opcion '))
+    return op
+    
 
 
 def __main__():
     libros=objetos(list)
-    mostrar_libros(libros)
-    buscar_isbn(libros)
-    buscar_titulo(libros)
-    filtrar_genero(libros)
-    mostrar_disponibles(libros)
-    registrar_prestamo(libros)
-    registrar_devolucion(libros)
-    mostrar_estadisticas(libros)
-    libro_mas_prestado(libros)
-    libro_mas_antiguo(libros)
+    opcion=menu()
+
+    if opcion==1:
+        mostrar_libros(libros)
+    elif opcion==2:
+        buscar_isbn(libros)
+    elif opcion==3:
+        buscar_titulo(libros)
+    elif opcion==4:
+        filtrar_genero(libros)
+    elif opcion==5:
+        mostrar_disponibles(libros)
+    elif opcion==6: 
+        registrar_prestamo(libros)
+    elif opcion==7:
+        registrar_devolucion(libros)
+    elif opcion==8:
+        mostrar_estadisticas(libros)
+    elif opcion==9:
+        libro_mas_prestado(libros)
+    elif opcion==10:
+        libro_mas_antiguo(libros)
+    elif opcion==11:
+        promedio_paginas(libros)
+
+    
 if __name__ == '__main__':
     __main__()
