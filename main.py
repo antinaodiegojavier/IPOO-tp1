@@ -142,6 +142,7 @@ def libro_mas_antiguo(libros:list):
     libro_antiguo = libros [0]     # dando por sentado que el primero sea el mas viejo (CREO)
     for libro in libros:
         if libro.anio < libro_antiguo.anio:
+            libro_antiguo=libro # si hay uno mas atiguo lo muestra
             print ('-----LIBRO MAS ANTIGUO DE NUESTRA BIBLIOTECA: -----')
             print (f'Titulo: {libro_antiguo.titulo}')
             print (f'Anio: {libro_antiguo.anio}')
