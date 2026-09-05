@@ -141,6 +141,18 @@ def libro_mas_antiguo(libros:list):  #ANALIZAR FUNCION Y DISCUTIRLA
             print (f'Anio: {libro.anio}')
             
 
+def promedio_paginas (libros:list):
+    cant_libros=len(libros)
+    for libro in libros:
+        tot_pags=sum(libro.paginas)
+        prom_pags=tot_pags/cant_libros
+    print(f'Cantidad de libros: {cant_libros}')
+    print(f'Total de paginas: {tot_pags} ')
+    print(f'Promedio de paginas:  {prom_pags}')
+
+
+
+
 
 def __main__():
     libros=objetos(list)
