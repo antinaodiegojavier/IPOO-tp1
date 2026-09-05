@@ -32,13 +32,13 @@ class Libro:                        # constructor de la clase libro
 
     def devolver(self):
         if not self.disponible:
-            self.disponible = True
+            self.__disponible = True
             return True
         else:
             return False
 
     def esta_disponible(self):
-        if self.disponible == True:
+        if self.__disponible == True:
             return True
         else:
             return False

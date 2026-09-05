@@ -174,43 +174,69 @@ def menu():
         9) Mostrar nuestro libro mas solicitado 
         10) Mostrar nuestro libro mas antiguo
         11) Calcular promedio de paginas 
+        0) Salir 
     
     
-    ''')
-    op=int(input('Elija una opcion '))
-    while op <1 or op>11:
-        print ('Ingrese una opcion valida (1-11) ')
-        op=int(input('Elija una opcion '))
-    return op
+    ''') 
+    
+    
+    
     
 
 
 def __main__():
     libros=objetos(list)
-    opcion=menu()
+    while True:
+        menu()
+        op=int(input('Elija una opcion '))
 
-    if opcion==1:
-        mostrar_libros(libros)
-    elif opcion==2:
-        buscar_isbn(libros)
-    elif opcion==3:
-        buscar_titulo(libros)
-    elif opcion==4:
-        filtrar_genero(libros)
-    elif opcion==5:
-        mostrar_disponibles(libros)
-    elif opcion==6: 
-        registrar_prestamo(libros)
-    elif opcion==7:
-        registrar_devolucion(libros)
-    elif opcion==8:
-        mostrar_estadisticas(libros)
-    elif opcion==9:
-        libro_mas_prestado(libros)
-    elif opcion==10:
-        libro_mas_antiguo(libros)
-    elif opcion==11:
-        promedio_paginas(libros)
+        if op>11:
+            print ('Ingrese una opcion valida')
+            continue
+     
+        if op==0:
+            print (' Gracias por participar. Saliendo del programa...')
+            break  
+        
+
+        if op==1:
+            mostrar_libros(libros)
+            
+            
+        elif op==2:
+            buscar_isbn(libros)
+                
+            
+        elif op==3:
+            buscar_titulo(libros)
+                
+            
+        elif op==4:
+            filtrar_genero(libros)
+            
+        elif op==5:
+            mostrar_disponibles(libros)
+            
+        elif op==6: 
+            registrar_prestamo(libros)
+            
+        elif op==7:
+            registrar_devolucion(libros)
+            
+        elif op==8:
+            mostrar_estadisticas(libros)
+            
+        elif op==9:
+            libro_mas_prestado(libros)
+        
+        elif op==10:
+            libro_mas_antiguo(libros)
+           
+        elif op==11:
+            promedio_paginas(libros)
+            
+
+    
 
     
 if __name__ == '__main__':
