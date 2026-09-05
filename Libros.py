@@ -31,7 +31,7 @@ class Libro:                        # constructor de la clase libro
             return False
 
     def devolver(self):
-        if not self.disponible:
+        if not self.__disponible:
             self.__disponible = True
             return True
         else:
@@ -56,7 +56,7 @@ class Libro:                        # constructor de la clase libro
         print(f"Año: {self.anio}")
         print(f"Género: {self.genero}")
         print(f"Páginas: {self.paginas}")
-        print(f"Disponible: {'Sí' if self.disponible else 'No'}")
+        print(f"Disponible: {'Sí' if self.__disponible else 'No'}")
         print(f"Cantidad de préstamos: {self.cantidad_prestamos}")
 
     def validar_isbn(self):
