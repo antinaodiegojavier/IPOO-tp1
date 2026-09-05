@@ -166,7 +166,7 @@ def promedio_paginas (libros: list):
 def menu():
     print ('\n=============================================================\n')
     print ('''
-    *----¡BIENVENIDO/A A LA BIBLIOTECA ROBDIEG ANTKLUG!----*
+    *----¡BIENVENIDO/A A LA BIBLIOTECA "MENTES BRILLANTES"!----*
 
         Que desea hacer hoy?
 
