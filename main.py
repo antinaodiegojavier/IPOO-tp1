@@ -41,12 +41,11 @@ def buscar_isbn(libros:list): #Algoritmo 2
 def buscar_titulo (libros: list): #Algoritmo 3
     print ('-----BUSQUEDA POR TITULO-----')
     titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize
-    encontrado=False
     for libro in libros:
         if titulo1==libro.titulo:  #ACLARACION: esta condicion esta mal, ya que si el usuario ingresa "quijote" y el libro es don quijote, no lo mostrara. CAMBIAR CONDICION
             print (f'Libro encontrado: {libro.titulo}')
-            encontrado=True
-    if not encontrado:
+            print (f'Autor: {libro.autor}')
+    if libro.titulo!=titulo1:
             print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
 
 
@@ -67,9 +66,9 @@ def filtrar_genero (libros:list): #Algoritmo 4
 
 def mostrar_disponibles(libros:list): #Algoritmo 5
     encontrados = False
+    print ('\nLibros disponibles de hoy: \n')
     for libro in libros:
         if libro.esta_disponible:
-            print ('\nLibros disponibles de hoy: \n')
             print (libro)
             encontrados = True
     if not encontrados:
@@ -81,12 +80,14 @@ def registrar_prestamo(libros:list): #algoritmo 6
      encontrado=False
      ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
      for libro in libros:
-          if ISBN==libro.isbn and libro.esta_disponible==True:
+          if libro.isbn==ISBN and libro.esta_disponible==True:
                     libro.prestar()
                     print('Prestamo registrado con exito')
                     encontrado=True
+     if libro.isbn!=ISBN:
+        print('No se encontro ningun libro con ese ISBN')
      if not encontrado:
-          print('No se encontro ningun libro con ese ISBN')
+          print('Ese libro no esta disponible en este momento nuestra biblioteca')
 
 
 
@@ -127,7 +128,7 @@ def mostrar_estadisticas(libros:list):  #algoritmo  8
 def libro_mas_prestado(libros:list): 
     for libro in libros:
         if  (f'cantidad_prestamos(libro)') > (f'cantidad_prestamos(libro)'):
-            print( 'self.mostrar_informacion()')
+            print( 'libro.mostrar_informacion()')
             print (f'Cantidad de prestamos: {libro.cantidad_prestamos}')
             print ('-----LIBRO MAS PRESTADO DE NUESTRA BIBLIOTECA: -----')
             print (f'Titulo: {libro.titulo}')
