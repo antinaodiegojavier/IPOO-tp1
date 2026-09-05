@@ -133,12 +133,14 @@ def libro_mas_prestado(libros:list):
          print ('No se han registrado prestamos de ningun libro en nuestra biblioteca')
 
 
-def libro_mas_antiguo(libros:list):  #  ESTA SIGUE FALLANDO
+def libro_mas_antiguo(libros:list):  
+
+    libro_antiguo = libros [0]     # dando por sentado que el primero sea el mas viejo (CREO)
     for libro in libros:
-        if libro.anio[0]>libro.anio[1]:
+        if libro.anio < libro_antiguo.anio:
             print ('-----LIBRO MAS ANTIGUO DE NUESTRA BIBLIOTECA: -----')
-            print (f'Titulo: {libro.titulo}')
-            print (f'Anio: {libro.anio}')
+            print (f'Titulo: {libro_antiguo.titulo}')
+            print (f'Anio: {libro_antiguo.anio}')
             
 
 def promedio_paginas (libros: list):
