@@ -120,7 +120,7 @@ def mostrar_estadisticas(libros:list):  #algoritmo  8
      print (f'Porcentaje de libros prestados: {porc_prestados}')
 
 
-def libro_mas_prestado(libros:list): #ANALIZAR FUNCION Y DISCUTIRLA
+def libro_mas_prestado(libros:list): 
     for libro in libros:
         if  (f'cantidad_prestamos(libro)') > (f'cantidad_prestamos(libro)'):
             print( 'self.mostrar_informacion()')
@@ -133,7 +133,7 @@ def libro_mas_prestado(libros:list): #ANALIZAR FUNCION Y DISCUTIRLA
          print ('No se han registrado prestamos de ningun libro en nuestra biblioteca')
 
 
-def libro_mas_antiguo(libros:list):  #ANALIZAR FUNCION Y DISCUTIRLA
+def libro_mas_antiguo(libros:list):  #  ESTA SIGUE FALLANDO
     for libro in libros:
         if libro.anio[0]>libro.anio[1]:
             print ('-----LIBRO MAS ANTIGUO DE NUESTRA BIBLIOTECA: -----')
@@ -141,14 +141,18 @@ def libro_mas_antiguo(libros:list):  #ANALIZAR FUNCION Y DISCUTIRLA
             print (f'Anio: {libro.anio}')
             
 
-def promedio_paginas (libros:list):
-    cant_libros=len(libros)
+def promedio_paginas (libros: list):
+    cant_libros = len(libros)
+    tot_pags = 0
+
     for libro in libros:
-        tot_pags=sum(libro.paginas)
-        prom_pags=tot_pags/cant_libros
-    print(f'Cantidad de libros: {cant_libros}')
-    print(f'Total de paginas: {tot_pags} ')
-    print(f'Promedio de paginas:  {prom_pags}')
+        tot_pags += libro.paginas
+
+    prom_pags = tot_pags / cant_libros
+
+    print (f'cantidad de libros: {cant_libros}')
+    print (f'total de paginas: {tot_pags}')
+    print (f'promedio de paginas: {prom_pags}')
 
 
 
