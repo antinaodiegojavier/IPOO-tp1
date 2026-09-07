@@ -26,7 +26,7 @@ def mostrar_libros(libros: list):
 
 def buscar_isbn(libros:list): #Algoritmo 2
     print ('-----BUSQUEDA POR ISBN-----')
-    isbn1=input(('Ingrese el ISBN del libro que desee buscar: '))
+    isbn1=int(input('Ingrese el ISBN del libro que desee buscar: '))
     encontrado=False
     for libro in libros:
         if isbn1==libro.isbn:
@@ -40,19 +40,21 @@ def buscar_isbn(libros:list): #Algoritmo 2
 
 def buscar_titulo (libros: list): #Algoritmo 3
     print ('-----BUSQUEDA POR TITULO-----')
-    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize
+    titulo1=str(input('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
+    encontrado=False
     for libro in libros:
-        if titulo1==libro.titulo:  #ACLARACION: esta condicion esta mal, ya que si el usuario ingresa "quijote" y el libro es don quijote, no lo mostrara. CAMBIAR CONDICION
+        if titulo1==libro.titulo:  
             print (f'Libro encontrado: {libro.titulo}')
             print (f'Autor: {libro.autor}')
-    if libro.titulo!=titulo1:
+            encontrado=True
+    if not encontrado:
             print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
 
 
 
 def filtrar_genero (libros:list): #Algoritmo 4
     print ('-----BUSQUEDA POR GENERO-----')
-    genero=input(str('Ingrese un genero para buscar un libro de nuestra biblioteca: '))
+    genero=str(input('Ingrese un genero para buscar un libro de nuestra biblioteca: ')).capitalize()
     encontrado=False
     for libro in libros:
             if genero==libro.genero:
@@ -78,15 +80,15 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
 def registrar_prestamo(libros:list): #algoritmo 6
      print ('-----REGISTRO DE PRESTAMO-----')
      encontrado=False
-     ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
+     ISBN=str(input('ingrese el ISBN del libro que quiere prestar: '))
      for libro in libros:
-          if libro.isbn==ISBN and libro.esta_disponible==True:
+          if ISBN==libro.isbn and libro.esta_disponible==True:
                     libro.prestar()
                     print('Prestamo registrado con exito')
                     encontrado=True
-     if libro.isbn!=ISBN:
+     if ISBN!=libro.isbn:
         print('No se encontro ningun libro con ese ISBN')
-     if not encontrado:
+     if libro.esta_disponible==False:
           print('Ese libro no esta disponible en este momento nuestra biblioteca')
 
 
