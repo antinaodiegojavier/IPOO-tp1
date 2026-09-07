@@ -40,13 +40,14 @@ def buscar_isbn(libros:list): #Algoritmo 2
 
 def buscar_titulo (libros: list): #Algoritmo 3
     print ('-----BUSQUEDA POR TITULO-----')
-    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize
+    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).lower()
     for libro in libros:
         if titulo1==libro.titulo:  #ACLARACION: esta condicion esta mal, ya que si el usuario ingresa "quijote" y el libro es don quijote, no lo mostrara. CAMBIAR CONDICION
             print (f'Libro encontrado: {libro.titulo}')
             print (f'Autor: {libro.autor}')
-    if libro.titulo!=titulo1:
-            print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
+        else :
+            if libro.titulo != titulo1:
+                print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
 
 
 
@@ -76,18 +77,19 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
 
 
 def registrar_prestamo(libros:list): #algoritmo 6
-     print ('-----REGISTRO DE PRESTAMO-----')
-     encontrado=False
-     ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
-     for libro in libros:
-          if libro.isbn==ISBN and libro.esta_disponible==True:
+    print ('-----REGISTRO DE PRESTAMO-----')
+    encontrado=False
+    ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
+    for libro in libros:
+        if libro.isbn==ISBN and libro.esta_disponible==True:
                     libro.prestar()
                     print('Prestamo registrado con exito')
                     encontrado=True
-     if libro.isbn!=ISBN:
-        print('No se encontro ningun libro con ese ISBN')
-     if not encontrado:
-          print('Ese libro no esta disponible en este momento nuestra biblioteca')
+        elif libro.isbn==ISBN and libro.esta_disponible==False:
+                    print('Ese libro no esta disponible en este momento nuestra biblioteca')
+        else:
+            if not encontrado:
+                print('No se encontro ningun libro con ese ISBN')
 
 
 
