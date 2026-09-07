@@ -11,10 +11,21 @@ class Libro:                        # constructor de la clase libro
         self.genero = genero
         self.paginas = paginas
 
-        self.__disponible=True 
-        # Indica si el libro está disponible para préstamo
-        self.__cantidad_prestamos=0 
-        # Indica cuantas veces se presto el libro
+        self.__disponible = True        
+        self.__cantidad_prestamos = 0
+
+
+        @property
+        def disponible(self):
+            return self.__esta_disponible
+
+        @property
+        def prestar(self):
+            if self.__disponible:
+                self.__disponible = False
+                self.__cantidad_prestamos += 1
+            return self.__cantidad_prestamos
+        
 
 # METODOS
 
@@ -23,19 +34,10 @@ class Libro:                        # constructor de la clase libro
         return f'isbn: {self.isbn} Titulo: {self.titulo} Autor: {self.autor} anio: {self.anio} Disponible: {'Si' if self.__disponible else 'No'} Genero:{self.genero} Paginas: {self.paginas}'
 
     def prestar(self):
-        if self.__disponible:
-            self.__disponible = False
-            self.__cantidad_prestamos += 1
-            return True
-        else:
-            return False
+        print (f"Disponible: {'Sí' if self.__disponible else 'No'}")
 
     def devolver(self):
-        if not self.__disponible:
-            self.__disponible = True
-            return True
-        else:
-            return False
+        print(f"Cantidad de préstamos: {self.__cantidad_prestamos}")
 
     def esta_disponible(self):
         if self.__disponible == True:
@@ -44,10 +46,7 @@ class Libro:                        # constructor de la clase libro
             return False
 
     def cantidad_prestamos(self):
-        if self.__cantidad_prestamos >0:
-            return self.cantidad_prestamos
-        else:
-            return 0
+       print (f"Cantidad de préstamos: {self.__cantidad_prestamos}")
 
     def mostrar_informacion(self):
         print(f"ISBN: {self.isbn}")

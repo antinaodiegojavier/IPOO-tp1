@@ -40,14 +40,12 @@ def buscar_isbn(libros:list): #Algoritmo 2
 
 def buscar_titulo (libros: list): #Algoritmo 3
     print ('-----BUSQUEDA POR TITULO-----')
-    titulo1=str(input('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
-    encontrado=False
+    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize
     for libro in libros:
         if titulo1==libro.titulo:  
             print (f'Libro encontrado: {libro.titulo}')
             print (f'Autor: {libro.autor}')
-            encontrado=True
-    if not encontrado:
+    if libro.titulo!=titulo1:
             print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
 
 
@@ -80,15 +78,15 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
 def registrar_prestamo(libros:list): #algoritmo 6
      print ('-----REGISTRO DE PRESTAMO-----')
      encontrado=False
-     ISBN=str(input('ingrese el ISBN del libro que quiere prestar: '))
+     ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
      for libro in libros:
-          if ISBN==libro.isbn and libro.esta_disponible==True:
+          if libro.isbn==ISBN and libro.esta_disponible==True:
                     libro.prestar()
                     print('Prestamo registrado con exito')
                     encontrado=True
-     if ISBN!=libro.isbn:
+     if libro.isbn!=ISBN:
         print('No se encontro ningun libro con ese ISBN')
-     if libro.esta_disponible==False:
+     if not encontrado:
           print('Ese libro no esta disponible en este momento nuestra biblioteca')
 
 
