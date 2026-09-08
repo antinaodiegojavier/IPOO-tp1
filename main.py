@@ -1,4 +1,4 @@
-from Libros import Libro
+from Libros import Libro, validar_anio,validar_autor,validar_genero,validar_isbn,validar_paginas,validar_titulo
 
 
 def objetos(libros)->list:
@@ -182,10 +182,54 @@ def menu():
         9) Mostrar nuestro libro mas solicitado 
         10) Mostrar nuestro libro mas antiguo
         11) Calcular promedio de paginas 
+        12) Crear y agregar un nuevo libro a nuestra lista de libros
         0) Salir ''')
     
     print ('\n=============================================================\n') 
     
+
+
+def creacion_libro(libros:list):
+        isbnNEW=int(input('Ingrese el isbn del nuevo libro que quiere agregar '))
+        while validar_isbn(isbnNEW)==False:
+            if validar_isbn(isbnNEW)==True:
+                isbnNEW2=int(input('El campo ISBN no puede estar vacio. Porfavor, ingrese un ISBN '))
+            else:
+                libros.append(isbnNEW)
+                continue
+
+        titleNEW=str(input('Ingrese el titulo del nuevo libro que quiere agregar '))
+        while validar_titulo(titleNEW)==False:
+            if validar_titulo(titleNEW)==True:
+                titleNEW=str(input('El campo titulo no puede estar vacio. Porfavor, ingrese un titulo '))
+            else:
+                libros.append(titleNEW)
+                continue
+
+        autorNEW=str(input('Ingrese el autor del nuevo libro que quiere agregar '))
+
+        while validar_autor(autorNEW)==False:
+            if validar_autor(autorNEW)==True:
+                autorNEW=str(input('El campo autor no puede estar vacio. Porfavor, ingrese un autor '))
+            else:
+                libros.append(autorNEW)
+
+        pags=int(input('Ingrese la cantidad de paginas del nuevo libro que quiere agregar '))
+        while validar_paginas(pags)==False:
+            
+            if validar_paginas(pags)==True:
+                pags=int(input('El campo paginas no puede ser negativo ni estar vacio'))
+            else:
+                libros.append[pags]
+
+        anioNEW=int(input('Ingrese el año del nuevo libro que quiere agregar (Mayor a 0, y no mayor al anio corriente) '))
+        while validar_anio(anioNEW)==False:
+            
+            if validar_anio(anioNEW)==True:
+               anioNEW=int(input('El campo año no puede estar vacio, ser negativo o ser mayor a 2026. Porfavor, vuelva a ingresar un año valido '))
+            else:
+                libros.append[anioNEW]
+
     
     
     
@@ -197,7 +241,7 @@ def __main__():
         menu()
         op=int(input('Elija una opcion: '))
 
-        if op>11:
+        if op>12:
             print ('Ingrese una opcion valida: ')
             continue
      
@@ -241,6 +285,8 @@ def __main__():
            
         elif op==11:
             promedio_paginas(libros)
+        elif op==12:
+            creacion_libro(libros)
             
 
     

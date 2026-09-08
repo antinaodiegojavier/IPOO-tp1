@@ -58,48 +58,45 @@ class Libro:                        # constructor de la clase libro
         print(f"Disponible: {'Sí' if self.__disponible else 'No'}")
         print(f"Cantidad de préstamos: {self.cantidad_prestamos}")
 
-    def validar_isbn(self):
-        if self.isbn==None:
+def validar_isbn(isbn):
+        if isbn==None:
             return True
         else:
             return False
-            raise Exception('El campo ISBN no puede estar vacio')
+            
     
-    def validar_titulo(self):
-        if self.titulo==None:
+def validar_titulo(titulo):
+        if titulo==None:
             return True
         else:
             return False
-            raise Exception('El campo titulo no puede estar vacio')
-
-    def validar_autor(self):
-        if self.autor==None:
+            
+def validar_autor(autor):
+        if autor==None:
             return True
         else:
             return False
-            raise Exception('El campo autor no puede estar vacio')
-    
-    def validar_anio(self):
-        if self.anio==None or self.anio<0 or self.anio>year:
+            
+def validar_anio(anio):
+        if anio==None or self.anio<0 or self.anio>year:
             return True
         else:
             return False
-            raise Exception('El campo anio no puede estar vacio, ser negativo o ser mayor a 2026 ')
-
-    def validar_paginas(self):
-        if self.paginas<0 or self.paginas==None:
+           
+def validar_paginas(pag):
+        if pag<0 or self.paginas==None:
             return True
         else:
             return False
-            raise Exception('El campo paginas no puede ser negativo ni estar vacio')
+            
 
 
-    def validar_genero(self):
-        if self.genero==None:
+def validar_genero(gen):
+        if gen==None:
             return True
         else:
             return False
-            raise Exception('El campo genero no puede estar vacio')
+            
 
     
     
