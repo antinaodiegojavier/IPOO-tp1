@@ -14,7 +14,7 @@ def objetos(libros)->list:
     libro8=Libro(isbn= 5674, titulo='El Hobbit', autor='Tolkien', anio= 1937, genero= 'Fantasia', paginas= 310)
     libro9=Libro(isbn= 7965, titulo='Pinocho', autor='Collodi', anio= 1883, genero= 'Fantasia', paginas= 188)
     libro10=Libro(isbn= 2357, titulo='Alicia', autor='Carroll', anio= 1865, genero= 'Fantasia', paginas= 128)
-    return [libro1,libro2,libro3,libro4,libro5,libro6,libro7,libro8,libro9,libro10]
+    return [libro1, libro2, libro3, libro4, libro5, libro6, libro7, libro8, libro9, libro10]
 
 
 def mostrar_libros(libros: list):
@@ -40,12 +40,14 @@ def buscar_isbn(libros:list): #Algoritmo 2
 
 def buscar_titulo (libros: list): #Algoritmo 3
     print ('-----BUSQUEDA POR TITULO-----')
-    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize
+    titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
+    encontrado=False
     for libro in libros:
         if titulo1==libro.titulo:  
             print (f'Libro encontrado: {libro.titulo}')
             print (f'Autor: {libro.autor}')
-    if libro.titulo!=titulo1:
+            encontrado=True
+    if not encontrado:
             print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
 
 
@@ -76,18 +78,18 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
 
 
 def registrar_prestamo(libros:list): #algoritmo 6
-     print ('-----REGISTRO DE PRESTAMO-----')
-     encontrado=False
-     ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
-     for libro in libros:
-          if libro.isbn==ISBN and libro.esta_disponible==True:
-                    libro.prestar()
-                    print('Prestamo registrado con exito')
-                    encontrado=True
-     if libro.isbn!=ISBN:
-        print('No se encontro ningun libro con ese ISBN')
-     if not encontrado:
-          print('Ese libro no esta disponible en este momento nuestra biblioteca')
+        print ('-----REGISTRO DE PRESTAMO-----')
+        encontrado=False
+        ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
+        for libro in libros:
+            if libro.isbn==ISBN:
+                libro.esta_disponible=False
+                libro.prestar()
+                print('Prestamo registrado con exito')
+        for libro in libros:
+            if libro.isbn==ISBN and libro.esta_disponible==False:
+                print('Ese libro no esta disponible en este momento nuestra biblioteca')
+   
 
 
 
@@ -190,54 +192,50 @@ def menu():
 
 
 def creacion_libro(libros:list):
+    
     isbnNEW=int(input('Ingrese el isbn del nuevo libro que quiere agregar '))
-    while validar_isbn(isbnNEW)==False:
-        if validar_isbn(isbnNEW)==True:
-            return "isbnNEW guardado en variable isbnNEW2"
-    isbnNEW2=int(input('El campo ISBN no puede estar vacio. Porfavor, ingrese un ISBN '))
-    if validar_isbn(isbnNEW2)==False:
-        return "isbnNEW2 no es valido"
-    libros.append(isbnNEW2)
-
+    while len(str(isbnNEW)) >0 and len(str(isbnNEW)) <13:
+        isbnNEW=int(input('El campo ISBN debe tener 13 dígitos. Porfavor, ingrese un ISBN valido '))
+    if validar_isbn(isbnNEW)==True:
+        libros.append(isbnNEW)
+    
     titleNEW=str(input('Ingrese el titulo del nuevo libro que quiere agregar '))
-    while validar_titulo(titleNEW)==False:
-            if validar_titulo(titleNEW)==True:
-                titleNEW=str(input('El campo titulo no puede estar vacio. Porfavor, ingrese un titulo '))
-            else:
-                libros.append(titleNEW)
-                continue
+    while len(titleNEW) == 0:
+        titleNEW=str(input('El campo titulo no puede estar vacio. Porfavor, ingrese un titulo '))
+    if validar_titulo(titleNEW)==True:
+        libros.append(titleNEW)
 
     autorNEW=str(input('Ingrese el autor del nuevo libro que quiere agregar '))
 
-    while validar_autor(autorNEW)==False:
-            if validar_autor(autorNEW)==True:
-                autorNEW=str(input('El campo autor no puede estar vacio. Porfavor, ingrese un autor '))
-            else:
-                libros.append(autorNEW)
+    while len(autorNEW) == 0:
+        autorNEW=str(input('El campo autor no puede estar vacio. Porfavor, ingrese un autor '))
+    if validar_autor(autorNEW)==True:
+        libros.append(autorNEW)
 
     pags=int(input('Ingrese la cantidad de paginas del nuevo libro que quiere agregar '))
-    while validar_paginas(pags)==False:
-            
-            if validar_paginas(pags)==True:
-                pags=int(input('El campo paginas no puede ser negativo ni estar vacio'))
-            else:
-                return "libros.append[pags]"
+    while len(str(pags)) == 0 or pags <= 0:
+        pags=int(input('El campo paginas no puede ser negativo ni estar vacio. Porfavor, ingrese un numero valido '))
+    if validar_paginas(pags)==True:
+        libros.append(pags)
 
     anioNEW=int(input('Ingrese el año del nuevo libro que quiere agregar (Mayor a 0, y no mayor al anio corriente) '))
-    while validar_anio(anioNEW)==False:
+    while len(str(anioNEW)) == 0 or anioNEW <= 0 or anioNEW > 2026:
             
-        if validar_anio(anioNEW)==True:
-               anioNEW=int(input('El campo año no puede estar vacio, ser negativo o ser mayor a 2026. Porfavor, vuelva a ingresar un año valido '))
-        else:
-            return "libros.append(anioNEW)"
+        anioNEW=int(input('El campo año no puede estar vacio, ser negativo o ser mayor a 2026. Porfavor, vuelva a ingresar un año valido '))
+    if validar_anio(anioNEW)==True: 
+        libros.append(anioNEW)
 
-    
-    
-    
+    generoNEW=str(input('Ingrese el genero del nuevo libro que quiere agregar '))
+    while len(generoNEW) == 0:
+        generoNEW=str(input('El campo genero no puede estar vacio. Porfavor, ingrese un genero '))
+    if validar_genero(generoNEW)==True:
+        libros.append(generoNEW)
+
+
 
 
 def __main__():
-    libros=objetos(list)
+    libros=objetos(list())
     while True:
         menu()
         op=int(input('Elija una opcion: '))
@@ -275,7 +273,7 @@ def __main__():
         elif op==7:
             registrar_devolucion(libros)
             
-        elif op==8:
+        elif op==8: 
             mostrar_estadisticas(libros)
             
         elif op==9:

@@ -78,13 +78,13 @@ def validar_autor(autor):
             return False
             
 def validar_anio(anio):
-        if anio==None or self.anio<0 or self.anio>year:
+        if anio==None or anio<0 or anio>year:
             return True
         else:
             return False
            
 def validar_paginas(pag):
-        if pag<0 or self.paginas==None:
+        if pag<0 or pag ==None:
             return True
         else:
             return False
