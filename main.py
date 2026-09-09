@@ -32,7 +32,7 @@ def buscar_isbn(libros:list): #Algoritmo 2
         if isbn1==libro.isbn:
             print ('Libro encontrado')
             print(libro)
-            encontrado=True #ACLARACION: no se si imprime el libro relacionado al isbn o si imprime todos los libros
+            encontrado=True 
     if not encontrado: 
             print ('No se encontro ningun libro con ese ISBN')
 
@@ -142,10 +142,10 @@ def libro_mas_prestado(libros:list):
 
 def libro_mas_antiguo(libros:list):  
 
-    libro_antiguo = libros [0]     # dando por sentado que el primero sea el mas viejo (CREO)
+    libro_antiguo = libros [0]     
     for libro in libros:
         if libro.anio < libro_antiguo.anio:
-            libro_antiguo=libro # si hay uno mas atiguo lo muestra
+            libro_antiguo=libro 
             print ('-----LIBRO MAS ANTIGUO DE NUESTRA BIBLIOTECA: -----')
             print (f'Titulo: {libro_antiguo.titulo}')
             print (f'Anio: {libro_antiguo.anio}')
@@ -194,10 +194,9 @@ def menu():
 def creacion_libro(libros:list):
     
     isbnNEW=int(input('Ingrese el isbn del nuevo libro que quiere agregar '))
-    while len(str(isbnNEW)) >0 and len(str(isbnNEW)) <13:
-        isbnNEW=int(input('El campo ISBN debe tener 13 dígitos. Porfavor, ingrese un ISBN valido '))
-    if validar_isbn(isbnNEW)==True:
-        libros.append(isbnNEW)
+    while len(str(isbnNEW)) >0 and len(str(isbnNEW)) <4:
+        isbnNEW=int(input('El campo ISBN debe tener 4 dígitos. Porfavor, ingrese un ISBN valido ')) 
+    
     
     titleNEW=str(input('Ingrese el titulo del nuevo libro que quiere agregar '))
     while len(titleNEW) == 0:
@@ -230,7 +229,19 @@ def creacion_libro(libros:list):
         generoNEW=str(input('El campo genero no puede estar vacio. Porfavor, ingrese un genero '))
     if validar_genero(generoNEW)==True:
         libros.append(generoNEW)
+    libronuevo=Libro(isbn=isbnNEW, titulo=titleNEW, autor=autorNEW,anio=anioNEW, paginas=pags, genero=generoNEW)
+    libros.append (libronuevo)
 
+    print (f'''Libro nuevo:
+        Titulo: {libronuevo.titulo}
+        Autor: {libronuevo.autor}
+    
+    ''')
+
+
+     
+
+    
 
 
 
