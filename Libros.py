@@ -1,8 +1,8 @@
 from datetime import datetime
 year=datetime.now().year
-class Libro:                        # constructor de la clase libro
-                                 #         |  
-                      # ___________________V______________________            
+class Libro:                        
+                                          
+                                  
     def __init__(self, isbn: int, titulo: str, autor: str, anio: int, genero: str, paginas: int):
         self.isbn = isbn
         self.titulo = titulo
