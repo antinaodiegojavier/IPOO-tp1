@@ -132,8 +132,8 @@ Todos los algoritmos en `main.py` se implementaron mediante **recorridos manuale
 
 ## 9. Validaciones
 **¿Dónde consideran que deberían realizarse estas validaciones? Expliquen por qué eligieron ese lugar.**
-     > Las validaciones deben realizarse **en el constructor (`__init__`) de la clase `Libro`**.
-     Si dejamos que un objeto `Libro` nazca con un año negativo, sin título o con páginas en cero, ese objeto circulará por todo el programa provocando fallos en otros algoritmos. Al validar en el constructor, se asegura que **ningún objeto Libro pueda existir en un estado inválido**.
+     > Las validaciones deben realizarse por fuera del **constructor (`__init__`) de la clase `Libro`**.
+     se las invoca desde **main.py** para validar datos ingreasados en la funcion `creacion_libro` al validar esto, se asegura que **ningún objeto Libro pueda existir en un estado inválido**.
 
 ---
 

@@ -18,13 +18,13 @@ def objetos(libros)->list:
 
 
 def mostrar_libros(libros: list):
-    print ('-----LIBROS DE LA BIBLIOTECA-----') #Algoritmo 1
+    print ('-----LIBROS DE LA BIBLIOTECA-----') 
     for libro in libros:
        print (libro)
 
 
 
-def buscar_isbn(libros:list): #Algoritmo 2
+def buscar_isbn(libros:list): 
     print ('-----BUSQUEDA POR ISBN-----')
     isbn1=int(input('Ingrese el ISBN del libro que desee buscar: '))
     encontrado=False
@@ -38,7 +38,7 @@ def buscar_isbn(libros:list): #Algoritmo 2
 
 
 
-def buscar_titulo (libros: list): #Algoritmo 3
+def buscar_titulo (libros: list): 
     print ('-----BUSQUEDA POR TITULO-----')
     titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
     encontrado=False
@@ -52,7 +52,7 @@ def buscar_titulo (libros: list): #Algoritmo 3
 
 
 
-def filtrar_genero (libros:list): #Algoritmo 4
+def filtrar_genero (libros:list): 
     print ('-----BUSQUEDA POR GENERO-----')
     genero=str(input('Ingrese un genero para buscar un libro de nuestra biblioteca: ')).capitalize()
     encontrado=False
@@ -66,7 +66,7 @@ def filtrar_genero (libros:list): #Algoritmo 4
 
     
 
-def mostrar_disponibles(libros:list): #Algoritmo 5
+def mostrar_disponibles(libros:list): 
     encontrados = False
     print ('\nLibros disponibles de hoy: \n')
     for libro in libros:
@@ -77,9 +77,9 @@ def mostrar_disponibles(libros:list): #Algoritmo 5
          print ('No hay libros disponibles en este momento ')
 
 
-def registrar_prestamo(libros:list): #algoritmo 6
+def registrar_prestamo(libros:list):
         print ('-----REGISTRO DE PRESTAMO-----')
-        encontrado=False
+        encontrado = False
         ISBN=input(('ingrese el ISBN del libro que quiere prestar: '))
         for libro in libros:
             if libro.isbn==ISBN:
@@ -93,7 +93,7 @@ def registrar_prestamo(libros:list): #algoritmo 6
 
 
 
-def registrar_devolucion(libros:list): #algoritmo 7
+def registrar_devolucion(libros:list): 
      print ('------REGISTRO DE DEVOLUCION------')
      ISBN=input(('ingrese el isbn del libro que sera devuelto: '))
      encontrado = False
@@ -106,7 +106,7 @@ def registrar_devolucion(libros:list): #algoritmo 7
           print('No se encontro ningun libro con ese ISBN')
 
 
-def mostrar_estadisticas(libros:list):  #algoritmo  8
+def mostrar_estadisticas(libros:list):  
      print ('----ESTADISTICAS DE LA BIBLIOTECA----')
      total_libros=len(libros)
      libros_disponibles=0
