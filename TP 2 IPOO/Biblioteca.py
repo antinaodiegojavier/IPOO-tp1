@@ -1,10 +1,11 @@
 from Libros import Libro
+from UsuariosBiblioteca import Usuario
 class Biblioteca:
     def __init__(self,nombre,colecUsuar,colecLibros,colecPrestamos):
         self.nombre== nombre
-        self.colecUsuar= colecUsuar
-        self.colecLibros= colecLibros
-        self.colecPrestamos= colecPrestamos
+        self.colecUsuar= []
+        self.colecLibros=[]
+        self.colecPrestamos= []
 
     def __str__(self):
         return (f'Nombre: {self.nombre}, Coleccion usuarios: {self.colecUsuar}, Coleccion libros: {self.colecLibros}, coleccion prestamos: {ColecPrestamos}')
@@ -44,7 +45,40 @@ class Biblioteca:
         print(f"Disponible: {'Sí' if self.__disponible else 'No'}")
         print(f"Cantidad de préstamos: {self.cantidad_prestamos}")
 
-    def creacion_libro(libros:list):
+    def agregar_libro(self, libros:list):   #relacion:agregacion
+        self.colecLibros.append(libros)
+
+
+
+    def registrar_usuario(self):    #relacion:agregacion
+        
+        DNI1=int(input('Ingrese su DNI'))
+        name=str(input('Ingrese su nombre'))
+        apellido1=str(input('Ingrese su apellido'))
+        usuario=Usuario(nombre=name, apellido=apellido1,dni=DNI1)
+        self.colecUsuar.append(usuario)
+
+
+    def registrar_prestamo(self):
+        print ('---REGISTRO DE PRESTAMO---')
+        dni3=int(input('Ingrese el DNI del usuario que va a solicitar el prestamo'))
+        for dni3 in Usuario:
+            if dni3==Usuario(self.dni):
+                libro2=int(input('Ingrese el ISBN del libro que quiere solicitar'))
+                for libro2 in Libros:
+                    if libro2 in Libros:
+                        if get_disponible==True:
+                            prestamo1=Prestamo(usuario=dni3,libro=libro2,fechaPrestamo=day)
+                            self.ColecPrestamos.append(prestamo1)
+                            
+                    else:
+                        print('No tenemos ese libro en nuestra biblioteca') 
+            else:
+                print('No se encontro ningun usuario registrado con ese DNI') 
+        
+
+
+    def crear_libro(libros:list):
     
         isbnNEW=int(input('Ingrese el isbn del nuevo libro que quiere agregar '))
         while len(str(isbnNEW)) >0 and len(str(isbnNEW)) <4:
@@ -91,3 +125,13 @@ class Biblioteca:
     
         ''')
 
+
+    def mostrar_disponibles(libros:list): 
+        encontrados = False
+        print ('\nLibros disponibles de hoy: \n')
+        for libro in libros:
+            if libro.esta_disponible:
+                print (libro)
+                encontrados = True
+        if not encontrados:
+            print ('No hay libros disponibles en este momento ')

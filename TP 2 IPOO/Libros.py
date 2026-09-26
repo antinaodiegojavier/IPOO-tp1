@@ -31,7 +31,7 @@ class Libro:
             self.__cantidad_prestamos += 1
     return self.__cantidad_prestamos
 
-    def objetos(libros)->list:
+    def objetos_creados(libros)->list:
 
         libro1=Libro( isbn= 1032, titulo='Emma', autor='Austen', anio= 1815, genero= 'Romance', paginas= 474)
         libro2=Libro(isbn= 6489, titulo='Dune', autor='Herbert', anio= 1965, genero= 'Ciencia ficcion', paginas= 688)
