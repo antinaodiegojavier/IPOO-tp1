@@ -6,8 +6,7 @@ class Prestamo:
         self.usuario= usuario
         self.libro= libro
         self.fechaPrestamo= fechaPrestamo
-        self.estadoPrestamo= estadoPrestamo
-
+        self.estadoPrestamo= "activo"
     def __str__(self):
         return f'Usuario: {self.usuario}, Libro: {self.libro}, Fecha de prestamo: {self.fechaPrestamo}, Estado del prestamo: {self.estadoPrestamo}'
 
@@ -32,7 +31,12 @@ class Prestamo:
 
 
 
-    def devolucion(self):
-        pass
-        
+    def devolver (self):
+        self.estadoPrestamo = "devuelto"
+
+    def es_activo(self):
+        return self.estadoPrestamo == "activo"
+
+    def mostrar_info(self):
+        return f"usuario: {self.usuario} , Libro: {self.libro.titulo}, Fecha: {self.fechaPrestamo}, Estado: {self.estadoPrestamo}"  
 
