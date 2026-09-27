@@ -7,18 +7,16 @@ class Prestamo:
         self.usuario= usuario
         self.libro= libro
         self.fechaPrestamo= fechaPrestamo
-        self.estadoPrestamo= estadoPrestamo
+        self.estadoPrestamo= False
+        self.id = id
 
     def __str__(self):
-        return f'Usuario: {self.usuario}, Libro: {self.libro}, Fecha de prestamo: {self.fechaPrestamo}, Estado del prestamo: {self.estadoPrestamo}'
+        return f'Usuario: {self.usuario}, Libro: {self.libro}, Fecha de prestamo: {self.fechaPrestamo}, Estado del prestamo: {self.estadoPrestamo} ID: {self.id}'
 
            
 
 
+   
 
-
-
-    def devolucion(self):
-        pass
         
 

@@ -1,5 +1,7 @@
 from Libros import Libro
 from UsuariosBiblioteca import Usuario
+from datetime import datetime
+day=datetime.now().day
 class Biblioteca:
     def __init__(self,nombre,colecUsuar,colecLibros,colecPrestamos):
         self.nombre== nombre
@@ -68,7 +70,7 @@ class Biblioteca:
                 for libro2 in Libros:
                     if libro2 in Libros:
                         if get_disponible==True:
-                            prestamo1=Prestamo(usuario=dni3,libro=libro2,fechaPrestamo=day)
+                            prestamo1=Prestamo(usuario=dni3,libro=libro2,fechaPrestamo=day, id=id)
                             self.ColecPrestamos.append(prestamo1)
                             
                     else:
@@ -135,3 +137,37 @@ class Biblioteca:
                 encontrados = True
         if not encontrados:
             print ('No hay libros disponibles en este momento ')
+
+
+    def prestamos_activos(self, usuario,libro):
+        for i in self.colecPrestamos:
+            if i.estadoPrestamo is not "Activo":
+                print ('Prestamos no devueltos: ') 
+                print (f'Usuario: {i.usuario}')
+                print (f'Libro: {i.libro}')
+                print (f'Fecha: {i.day}')
+                print (f'Estado del prestamo: {i.estadoPrestamo}')
+
+    def prestamo_usuario(self,usuario,dni):
+        for usuario1 in colecUsuar:
+            for dni in usuario1:
+                if dni==usuario1.dni:
+                    print ('Prestamos realizados por ese usuario: ')
+                    print (f'Usuario: {Prestamo.usuario}')
+                    print (f'Libro: {Prestamo.libro}')
+                    print (f'Fecha: {prestamo.fechaPrestamo}')
+                    print (f'Estado del prestamo: {prestamo.estadoPrestamo}')
+                else:
+                    print ('No se encontraron usuarios con ese dni. ')
+
+    def devolver(self, id):
+        for i in colecPrestamos:
+            if i.colecPrestamos.id==id:
+
+
+
+
+
+
+
+

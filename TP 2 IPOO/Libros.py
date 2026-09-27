@@ -1,5 +1,5 @@
 from datetime import datetime
-year=datetime.now().year
+day=datetime.now().day
 class Libro: 
 
     # METODOS                                                             
