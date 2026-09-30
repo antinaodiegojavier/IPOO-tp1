@@ -1,8 +1,9 @@
 class Usuario:
-    def __init__(self,nombre,apellido,dni):
+    def __init__(self,nombre,apellido,dni, usuarios):
         self.nombre= nombre
         self.apellido= apellido
         self.dni= dni
+        self.usuarios = []
 
     def __str__(self):
         return f'Nombre: {self.nombre}, Apellido: {self.apellido} DNI: {self.dni}'
@@ -19,3 +20,5 @@ class Usuario:
                 print ('Usuario no encontrado')
         
 
+    def listar_usuarios(self):
+        return [self.usuarios]

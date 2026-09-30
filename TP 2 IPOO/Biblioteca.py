@@ -13,6 +13,21 @@ class Biblioteca:
         return (f'Nombre: {self.nombre}, Coleccion usuarios: {self.colecUsuar}, Coleccion libros: {self.colecLibros}, coleccion prestamos: {ColecPrestamos}')
 
 
+    def objetos_creados(libros)->list:
+
+        libro1=Libro( isbn= 1032, titulo='Emma', autor='Austen', anio= 1815, genero= 'Romance', paginas= 474)
+        libro2=Libro(isbn= 6489, titulo='Dune', autor='Herbert', anio= 1965, genero= 'Ciencia ficcion', paginas= 688)
+        libro3=Libro(isbn= 5993, titulo='Dracula', autor='Stoker', anio= 1897, genero= 'Terror', paginas= 418)
+        libro4=Libro(isbn= 1204, titulo='Hamlet', autor='Shakespeare', anio= 1603, genero= 'Drama', paginas= 200)
+        libro5=Libro(isbn= 1244, titulo='Matilda', autor='Dahl', anio= 1988, genero= 'Fantasia', paginas= 240)
+        libro6=Libro(isbn= 5869, titulo='Carrie', autor='King', anio= 1974, genero= 'Terror', paginas= 199)
+        libro7=Libro(isbn= 2211, titulo='Momo', autor='Ende', anio= 1973, genero= 'Fantasia', paginas= 304)
+        libro8=Libro(isbn= 5674, titulo='El Hobbit', autor='Tolkien', anio= 1937, genero= 'Fantasia', paginas= 310)
+        libro9=Libro(isbn= 7965, titulo='Pinocho', autor='Collodi', anio= 1883, genero= 'Fantasia', paginas= 188)
+        libro10=Libro(isbn= 2357, titulo='Alicia', autor='Carroll', anio= 1865, genero= 'Fantasia', paginas= 128)
+    return [libro1, libro2, libro3, libro4, libro5, libro6, libro7, libro8, libro9, libro10]
+
+
     def buscar_titulo (libros: list): 
         print ('-----BUSQUEDA POR TITULO-----')
         titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
@@ -61,7 +76,7 @@ class Biblioteca:
         self.colecUsuar.append(usuario)
 
 
-    def registrar_prestamo(self):
+    def registrar_prestamo(self): #relacion:agregacion
         print ('---REGISTRO DE PRESTAMO---')
         dni3=int(input('Ingrese el DNI del usuario que va a solicitar el prestamo'))
         for dni3 in Usuario:
@@ -70,7 +85,7 @@ class Biblioteca:
                 for libro2 in Libros:
                     if libro2 in Libros:
                         if get_disponible==True:
-                            prestamo1=Prestamo(usuario=dni3,libro=libro2,fechaPrestamo=day, id=id)
+                            prestamo1=Prestamo(usuario=dni3,libro=libro2,fechaPrestamo=day, id=id, estadoPrestamo:True)
                             self.ColecPrestamos.append(prestamo1)
                             
                     else:
@@ -141,7 +156,7 @@ class Biblioteca:
 
     def prestamos_activos(self, usuario,libro):
         for i in self.colecPrestamos:
-            if i.estadoPrestamo is not "Activo":
+            if i.estadoPrestamo is False:
                 print ('Prestamos no devueltos: ') 
                 print (f'Usuario: {i.usuario}')
                 print (f'Libro: {i.libro}')
@@ -163,6 +178,27 @@ class Biblioteca:
     def devolver(self, id):
         for i in colecPrestamos:
             if i.colecPrestamos.id==id:
+                    self.colecPrestamos.estadoPrestamo== False
+                print (f'''Prestamo identificado
+                     Usuario: {self.colecPrestamos.usuario}
+                     Libro prestado: {self.colecPrestamos.libro}
+                     Fecha de prestamo: {self.colecPrestamos.fechaPrestamo}
+                     Prestamo descontinuado. GRACIAS!
+                
+                ''')
+            else: 
+                print ('Prestamo no identificado, revise el ID!')
+
+    def buscar_usuario(self, usuario):
+            if usuario in self.colecUsuar:
+                print (f'''Usuario encontrado
+                        Nombre: {self.colecUsuar.nombre}
+                        Apellido: {self.colecUsuar.apellido}
+                        DNI: {self.colecUsuar.dni}
+                ''')
+            else:
+                print ('Usuario no encontrado.')
+        
 
 
 

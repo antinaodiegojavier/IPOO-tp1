@@ -66,13 +66,13 @@ def __main__():
             registrar_devolucion(libros)
             
         elif op==8: 
-            #registrar usuario
+            Biblioteca.registrar_usuario()
             
         elif op==9:
-            #mostrar prestamos activos
+            Biblioteca.prestamos_activos()
         
         elif op==10:
-            #mostrar prestamos de un usuario
+            Biblioteca.prestamo_usuario()
            
             
 
