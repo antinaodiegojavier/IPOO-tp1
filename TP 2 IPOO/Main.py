@@ -1,3 +1,4 @@
+from Main import tp1ipoo
 from Biblioteca import Biblioteca
 from Libros import Libro
 from PrestamoBiblioteca import Prestamo
@@ -27,7 +28,7 @@ def menu():
 
 
 def __main__():
-    libros=objetos_creados(list())
+    
     while True:
         menu()
         op=int(input('Elija una opcion: '))
@@ -42,37 +43,37 @@ def __main__():
         
 
         if op==1:
-            mostrar_libros(libros)
+            return
             
             
         elif op==2:
-            buscar_isbn(libros)
+            return 
                 
             
         elif op==3:
-            buscar_titulo(libros)
+            print (f'self.buscar_titulo(libros)')
                 
             
         elif op==4:
-            #buscar usuario
+            print (f'buscar_usuario(libros)')
             
         elif op==5:
-            mostrar_disponibles(libros)
+            print (f'mostrar_disponibles(libros)')
             
         elif op==6: 
-            registrar_prestamo(libros)
+            print (f'registrar_prestamo(libros)')
             
         elif op==7:
-            registrar_devolucion(libros)
+            print(f'registrar_devolucion(libros)')
             
         elif op==8: 
-            Biblioteca.registrar_usuario()
+            print(f'Biblioteca.registrar_usuario()')
             
         elif op==9:
-            Biblioteca.prestamos_activos()
+            print(f'Biblioteca.prestamos_activos()')
         
         elif op==10:
-            Biblioteca.prestamo_usuario()
+            print (f'Biblioteca.prestamo_usuario()')
            
             
 

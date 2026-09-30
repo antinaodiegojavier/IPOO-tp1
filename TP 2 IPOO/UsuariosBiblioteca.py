@@ -1,16 +1,16 @@
-class Usuario:
-    def __init__(self,nombre,apellido,dni, usuarios):
+class Usuario():
+    def __init__(self,nombre:str,apellido:str,dni:int, usuarios:list):
         self.nombre= nombre
         self.apellido= apellido
         self.dni= dni
-        self.usuarios = []
+        self.usuarios = usuarios
 
     def __str__(self):
         return f'Nombre: {self.nombre}, Apellido: {self.apellido} DNI: {self.dni}'
     
     def buscar_X_DNI(self):
         dni2=int(input('Ingrese el DNI del usuario que quiere buscar'))
-        for dni2 in Usuario:
+        for dni2 in self.usuarios:
             if dni2==self.dni:
                 print (f'''Usuario encontrado:
                            Nombre: {self.nombre}

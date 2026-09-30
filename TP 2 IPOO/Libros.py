@@ -22,71 +22,71 @@ class Libro:
 
     @property
     def get_disponible(self):
-            return self.__esta_disponible
+        return self.__disponible
 
     @property
     def get_prestar(self):
         if self.__disponible:
             self.__disponible = False
             self.__cantidad_prestamos += 1
-    return self.__cantidad_prestamos
+        return self.__cantidad_prestamos
 
         
-    def prestar(self):
-        print (f"Disponible: {'Sí' if self.__disponible else 'No'}")
+def prestar(self):
+    print (f"Disponible: {'Sí' if self.__disponible else 'No'}")
 
-    def devolver(self):
+def devolver(self):
     
-        print(f"Cantidad de préstamos: {self.__cantidad_prestamos}")
+    print(f"Cantidad de préstamos: {self.__cantidad_prestamos}")
 
-    def esta_disponible(self):
-        if self.__disponible == True:
-            return True
-        else:
-            return False
+def esta_disponible(self):
+    if self.__disponible == True:
+        return True
+    else:
+        return False
 
-    def cantidad_prestamos(self):
-       print (f"Cantidad de préstamos: {self.__cantidad_prestamos}")
+def cantidad_prestamos(self):
+   print (f"Cantidad de préstamos: {self.__cantidad_prestamos}")
 
 
 def validar_isbn(isbn):
-        if isbn==None:
-            return True
-        else:
-            return False
+    if isbn==None:
+        return True
+    else:
+        return False
             
     
 def validar_titulo(titulo):
-        if titulo==None:
-            return True
-        else:
-            return False
+    if titulo==None:
+        return True
+    else:
+        return False
             
 def validar_autor(autor):
-        if autor==None:
-            return True
-        else:
-            return False
+    if autor==None:
+        return True
+    else:
+        return False
             
 def validar_anio(anio):
-        if anio==None or anio<0 or anio>year:
-            return True
-        else:
-            return False
+    if anio==None or anio<0 or anio>datetime.year:
+        return True
+    else:
+        return False
            
 def validar_paginas(pag):
-        if pag<0 or pag ==None:
-            return True
-        else:
-            return False
+    if pag<0 or pag ==None:
+        return True
+    else:
+        return False
             
 
 
 def validar_genero(gen):
-        if gen==None:
-            return True
-        else:
-            return False
+    if gen==None:
+        return True
+    else:
+        return False
             
 
     
