@@ -1,6 +1,8 @@
 from UsuariosBiblioteca import Usuario
 from Biblioteca import Biblioteca
 from datetime import datetime
+import random
+
 day=datetime.now().day
 class Prestamo:
     def __init__(self, usuario, libro, id):
