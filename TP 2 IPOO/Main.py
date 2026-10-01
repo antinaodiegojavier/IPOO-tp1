@@ -1,4 +1,3 @@
-from Main import tp1ipoo
 from Biblioteca import Biblioteca
 from Libros import Libro
 from PrestamoBiblioteca import Prestamo
@@ -43,37 +42,46 @@ def __main__():
         
 
         if op==1:
-            return
+            Biblioteca.mostrar_informacion()
             
             
         elif op==2:
-            return 
+            isbn1=int(input('Ingrese el ISBN del libro que desee buscar: '))
+            Biblioteca.buscar_isbn(isbn1)
                 
             
         elif op==3:
-            print (f'self.buscar_titulo(libros)')
+             titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
+             Biblioteca.buscar_titulo(libros,titulo1)
                 
             
         elif op==4:
-            print (f'buscar_usuario(libros)')
+            dni4=input(str('Ingrese el DNI del usuario que quiere buscar'))
+            Biblioteca.buscar_usuario(libros, dni4)
             
         elif op==5:
-            print (f'mostrar_disponibles(libros)')
+            Biblioteca.mostrar_disponibles(libros)
             
         elif op==6: 
-            print (f'registrar_prestamo(libros)')
+             dni3=int(input('Ingrese el DNI del usuario que va a solicitar el prestamo'))
+             libro2=int(input('Ingrese el ISBN del libro que quiere solicitar'))
+             Biblioteca.registrar_prestamo(dni3, libro2)
             
         elif op==7:
-            print(f'registrar_devolucion(libros)')
+            id1=input(int('Ingrese el ID del prestamo realizado previamente '))
+            Biblioteca.devolver(id1)
             
         elif op==8: 
-            print(f'Biblioteca.registrar_usuario()')
+             DNI1=int(input('Ingrese su DNI'))
+             name=str(input('Ingrese su nombre'))
+             apellido1=str(input('Ingrese su apellido'))
+             Biblioteca.registrar_usuario(name,apellido1, DNI1)
             
         elif op==9:
-            print(f'Biblioteca.prestamos_activos()')
+            Biblioteca.prestamos_activos()
         
         elif op==10:
-            print (f'Biblioteca.prestamo_usuario()')
+            Biblioteca.prestamo_usuario()
            
             
 

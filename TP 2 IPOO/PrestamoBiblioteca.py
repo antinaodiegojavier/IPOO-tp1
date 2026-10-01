@@ -8,7 +8,7 @@ class Prestamo:
         self.libro = libro            
         self.fechaPrestamo = datetime.now()
         self.estadoPrestamo = True    # True = activo, False = devuelto
-        self.id = id
+        self.id = random.randint(000,999)
 
     def __str__(self):
         return f'Usuario: {self.usuario}, Libro: {self.libro}, Fecha de prestamo: {self.fechaPrestamo}, Estado del prestamo: {self.estadoPrestamo}'
@@ -17,7 +17,7 @@ class Prestamo:
     def devolver(self):
         if self.estadoPrestamo:
             self.estadoPrestamo = False
-            self.libro.disponible = True
+            self.libro.get_disponible = True
             print(f'El libro "{self.libro.titulo}" ha sido devuelto por {self.usuario.nombre}.')
         else:
             print('Este préstamo ya esta activo.')

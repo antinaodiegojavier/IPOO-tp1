@@ -30,24 +30,22 @@ class Biblioteca:
         return [libro1, libro2, libro3, libro4, libro5, libro6, libro7, libro8, libro9, libro10]
 
 
-    def buscar_titulo (self): 
+    def buscar_titulo (self,titulo): 
         print ('-----BUSQUEDA POR TITULO-----')
-        titulo1=input(str('Ingrese el titulo o un fragmento del mismo para buscar un libro de nuestra biblioteca: ')).capitalize()
         encontrado=False
         for libro in self.colecLibros:
-            if titulo1==libro.titulo:  
+            if titulo==libro.titulo:  
                 print (f'Libro encontrado: {libro.titulo}')
                 print (f'Autor: {libro.autor}')
                 encontrado=True
             if not encontrado:
                 print ('En nuestra biblioteca, no hay libros relacionados a ese titulo.')
 
-    def buscar_isbn(self): 
+    def buscar_isbn(self,isbn): 
         print ('-----BUSQUEDA POR ISBN-----')
-        isbn1=int(input('Ingrese el ISBN del libro que desee buscar: '))
         encontrado=False
         for libro in self.colecLibros:
-            if isbn1==libro.isbn:
+            if isbn==libro.isbn:
                 print ('Libro encontrado')
                 print(libro)
                 encontrado=True 
@@ -69,26 +67,30 @@ class Biblioteca:
 
 
 
-    def registrar_usuario(self):    #relacion:agregacion
+    def registrar_usuario(self,dni2,name1,apellido2):    #relacion:agregacion
         
-        DNI1=int(input('Ingrese su DNI'))
-        name=str(input('Ingrese su nombre'))
-        apellido1=str(input('Ingrese su apellido'))
-        usuario=Usuario
+        usuario=Usuario(dni=dni2, nombre=name1, apellido=apellido2)
         self.colecUsuar.append(usuario)
 
 
-    def registrar_prestamo(self): #relacion:agregacion
+    def registrar_prestamo(self,dni, libro): #relacion:agregacion
         print ('---REGISTRO DE PRESTAMO---')
-        dni3=int(input('Ingrese el DNI del usuario que va a solicitar el prestamo'))
-        for dni3 in self.colecUsuar:
-            if dni3 in Usuario:
-                libro2=int(input('Ingrese el ISBN del libro que quiere solicitar'))
-                for libro2 in self.colecLibros:
-                    if libro2 in Libro:
-                        if libro2 == True:
+        for dni in self.colecUsuar:
+            if dni in self.colecUsuar:
+                for libro in self.colecLibros:
+                    if libro in Libro:
+                        if libro.get_disponible == True:
+                            print (f'''Prestamo realizado con exito!
+                            Datos del prestamo:
+                            DNI del usuario: {self.colecUsuar.dni}
+                            Nombre del usuario: {self.colecUsuar.nombre}
+                            ID del prestamo: {self.colecUsuar.id}
+                            
+                            ''')
                             prestamo1 = self.prestamo_usuario
                             return self.colecPrestamos.append(prestamo1)
+                        else:
+                            print ('Ese libro no esta disponible en nuestra biblioteca.')
                             
                     else:
                         print('No tenemos ese libro en nuestra biblioteca') 
@@ -164,16 +166,17 @@ class Biblioteca:
                 print (f'Libro: {i.libro}')
                 print (f'Fecha: {i.day}')
                 print (f'Estado del prestamo: {i.estadoPrestamo}')
+            else: 
+                print ('No hay prestamos activos aun.')
 
-    def prestamo_usuario(self,usuario1,dni):
-        for usuario1 in self.colecUsuar:
-            for dni in usuario1:
-                if dni==usuario1.dni:
+    def prestamo_usuario(self,dni):
+            for dni in self.colecUsuar:
+                if dni==self.colecUsuar.dni:
                     print ('Prestamos realizados por ese usuario: ')
-                    print (f'Usuario: {Prestamo, self.prestamo_usuario}')
-                    print (f'Libro: {Prestamo, self.colecLibros}')
-                    print (f'Fecha: {Prestamo, datetime}')
-                    print (f'Estado del prestamo: {Prestamo, self.colecPrestamos}')
+                    print (f'Usuario: {self.prestamo_usuario}')
+                    print (f'Libro: {self.colecLibros}')
+                    print (f'Fecha: {day}')
+                    print (f'Estado del prestamo: {Prestamo.estadoPrestamo}')
                 else:
                     print ('No se encontraron usuarios con ese dni. ')
 
@@ -189,8 +192,8 @@ class Biblioteca:
         else: 
             print ('Prestamo no identificado, revise el ID!')
 
-    def buscar_usuario(self, usuario):
-            if usuario in self.colecUsuar:
+    def buscar_usuario(self, dni):
+            if dni in self.colecUsuar:
                 print (f'''Usuario encontrado
                         Nombre: {self.colecUsuar.nombre}
                         Apellido: {self.colecUsuar.apellido}
