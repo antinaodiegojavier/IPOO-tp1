@@ -175,7 +175,7 @@ class Biblioteca:
                     print (f'Usuario: {self.prestamo_usuario}')
                     print (f'Libro: {self.colecLibros}')
                     print (f'Fecha: {day}')
-                    print (f'Estado del prestamo: {Prestamo.estadoPrestamo}')
+                    print (f'Estado del prestamo: {self.prestamos_activos}')
                 else:
                     print ('No se encontraron usuarios con ese dni. ')
 
