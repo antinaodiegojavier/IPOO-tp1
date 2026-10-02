@@ -1,5 +1,4 @@
 from UsuariosBiblioteca import Usuario
-from Biblioteca import Biblioteca
 from datetime import datetime
 day=datetime.now().day
 class Prestamo:

@@ -2,7 +2,6 @@ from Libros import Libro
 from UsuariosBiblioteca import Usuario
 from datetime import datetime
 from Libros import validar_anio, validar_isbn, validar_autor, validar_genero,validar_paginas, validar_titulo
-from PrestamoBiblioteca import Prestamo
 day=datetime.now().day
 class Biblioteca:
     def __init__(self,nombre,colecUsuar,colecLibros,colecPrestamos):
